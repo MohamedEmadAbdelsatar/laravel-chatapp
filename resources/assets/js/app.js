@@ -78,6 +78,7 @@ const app = new Vue({
         }
     },
     mounted(){
+        var privateChannel = pusher.subscribe('chat');
         this.getOldMessages();
         Echo.private('chat')
             .listen('ChatEvent', (e) => {
